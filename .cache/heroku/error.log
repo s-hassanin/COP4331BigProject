@@ -1,0 +1,20 @@
+2023-06-23T00:57:08.248Z Warning: Cannot open browser.
+2023-06-23T00:57:08.248Z     at Object.warn (/usr/local/lib/node_modules/heroku/node_modules/@oclif/core/lib/errors/index.js:50:15)
+2023-06-23T00:57:08.248Z     at showUrl (/usr/local/lib/node_modules/heroku/node_modules/@heroku-cli/command/lib/login.js:138:20)
+2023-06-23T00:57:08.248Z     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/heroku/node_modules/@heroku-cli/command/lib/login.js:151:17)
+2023-06-23T00:57:08.248Z     at ChildProcess.emit (node:events:513:28)
+2023-06-23T00:57:08.248Z     at maybeClose (node:internal/child_process:1091:16)
+2023-06-23T00:57:08.248Z     at ChildProcess._handle.onexit (node:internal/child_process:302:5)
+2023-06-23T01:02:03.669Z Warning: Cannot open browser.
+2023-06-23T01:02:03.669Z     at Object.warn (/usr/local/lib/node_modules/heroku/node_modules/@oclif/core/lib/errors/index.js:50:15)
+2023-06-23T01:02:03.669Z     at showUrl (/usr/local/lib/node_modules/heroku/node_modules/@heroku-cli/command/lib/login.js:138:20)
+2023-06-23T01:02:03.669Z     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/heroku/node_modules/@heroku-cli/command/lib/login.js:151:17)
+2023-06-23T01:02:03.669Z     at ChildProcess.emit (node:events:513:28)
+2023-06-23T01:02:03.669Z     at maybeClose (node:internal/child_process:1091:16)
+2023-06-23T01:02:03.669Z     at ChildProcess._handle.onexit (node:internal/child_process:302:5)
+2023-06-23T02:02:40.866Z Warning: update with: "npm update -g heroku"
+2023-06-23T02:02:40.866Z     at Object.warn (/usr/local/lib/node_modules/heroku/node_modules/@oclif/plugin-update/node_modules/@oclif/core/lib/errors/index.js:49:15)
+2023-06-23T02:02:40.866Z     at Updater.notUpdatable (/usr/local/lib/node_modules/heroku/node_modules/@oclif/plugin-update/lib/update.js:218:27)
+2023-06-23T02:02:40.866Z     at Updater.runUpdate (/usr/local/lib/node_modules/heroku/node_modules/@oclif/plugin-update/lib/update.js:30:18)
+2023-06-23T02:02:40.866Z     at async UpdateCommand._run (/usr/local/lib/node_modules/heroku/node_modules/@oclif/plugin-update/node_modules/@oclif/core/lib/command.js:117:22)
+2023-06-23T02:02:40.866Z     at async Config.runCommand (/usr/local/lib/node_modules/heroku/node_modules/@oclif/core/lib/config/config.js:301:25)
