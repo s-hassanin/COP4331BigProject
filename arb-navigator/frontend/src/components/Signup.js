@@ -34,7 +34,7 @@ function Signup()
 
         try
         {    
-            const response = await fetch(buildPath('api/signup'),
+            const response = await fetch(buildPath('api/signUp'),
                 {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
 
             let res = JSON.parse(await response.text());
