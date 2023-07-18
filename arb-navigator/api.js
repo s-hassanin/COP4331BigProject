@@ -60,21 +60,26 @@ const { login, password } = req.body;
 // const db = client.db();
 // const results = await
 // db.collection('Users').find({Login:login,Password:password}).toArray();
-const results = await User.find({ Login: login, Password: password });
+const results = await User.find({'Login' : login}).select("-_id");
+
 var id = -1;
 var fn = '';
 var ln = '';
 var ret;
 if( results.length > 0 )
 {
-id = results[0].UserId;
+
+console.log("there was a hit");
+// id = results[0].UserId;
 fn = results[0].FirstName;
 ln = results[0].LastName;
 
+var str = JSON.stringify(results);
+console.log(str);
 try
 {
     const token = require("./createJWT.js");
-    ret = token.createToken(fn,ln,id);
+    ret = token.createToken(fn,ln);
 }
 catch(e)
 {
@@ -85,7 +90,7 @@ catch(e)
     ret = {error:"Login/Password incorrect"};
 }
 
-
+console.log(ret);
 res.status(200).json(ret);
 });
 app.post('/api/searchcards', async (req, res, next) =>
@@ -130,5 +135,38 @@ console.log(e.message);
 }
 var ret = { results:_ret, error: error, jwtToken: refreshedToken };
 });
+
+app.post('/api/signUp', async (req,res,next) =>
+{
+    // incoming: FirstName, LastName, Email, Login, Password;
+    // outcoming: FirstName, LastName
+
+    var error = '';
+    const { firstname, lastname, email, login, password } = req.body;
+    var newUser = new User({FirstName: firstname, LastName: lastname, Email: email, Login: login, Password: password});
+    
+
+    try
+    {
+        newUser.save().then(savedUser => {
+            savedUser = newUser;
+        });
+        const token = require("./createJWT.js");
+        ret = token.createToken(firstname, lastname);
+    }
+    catch(e)
+    {
+        ret = {error:e.message};
+    }
+    console.log(ret);
+    res.status(200).json(ret);    
+
+   
+
+
+});
 }
+
+
+
 

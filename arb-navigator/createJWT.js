@@ -1,15 +1,15 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-exports.createToken = function ( fn, ln, id )
+exports.createToken = function ( fn, ln)
 {
-return _createToken( fn, ln, id );
+return _createToken( fn, ln);
 }
-_createToken = function ( fn, ln, id )
+_createToken = function ( fn, ln )
 {
 try
 {
 
-const user = {userId:id,firstName:fn,lastName:ln};
+const user = {firstName:fn,lastName:ln};
 const accessToken = jwt.sign( user, process.env.ACCESS_TOKEN_SECRET);
 // In order to exoire with a value other than the default, use the
 // following
@@ -19,7 +19,7 @@ const accessToken= jwt.sign(user,process.env.ACCESS_TOKEN_SECRET,
 '24h'
 '365d'
 */
-var ret = {accessToken:accessToken,fn:fn,ln:ln,id:id};
+var ret = {accessToken:accessToken,fn:fn,ln:ln};
 }
 catch(e)
 {
@@ -46,8 +46,8 @@ return isError;
 exports.refresh = function( token )
 {
 let ud = jwt.decode(token,{complete:true});
-let userId = ud.payload.id;
+
 let firstName = ud.payload.firstName;
 let lastName = ud.payload.lastName;
-return _createToken( firstName, lastName, userId );
+return _createToken( firstName, lastName );
 }
